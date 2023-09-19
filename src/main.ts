@@ -1,7 +1,12 @@
-import { Exp } from "./example";
+import server from "./server/server";
+import * as conf from "./configuration/config";
+import { logColors } from "./utils/visual/logging";
 
-const Hello = (): void => {
-  console.log(Exp());
-};
+const { restServerPort } = conf.serverConf;
 
-Hello();
+server.listen(restServerPort, async () => {
+  console.log(
+    logColors.fg.green + "%s" + logColors.reset,
+    `⚡️[server] : REST API server is running at http://localhost:${restServerPort} \n`
+  );
+});
