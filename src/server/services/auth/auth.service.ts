@@ -23,7 +23,7 @@ export const createUser = async (
       .returning({ userName: users.userName });
     const res: UserResponse = {
       success: true,
-      message: `Created User (${r[0].userName}).`,
+      message: `Created user (${r[0].userName}).`,
     };
     return res;
   } catch (err) {

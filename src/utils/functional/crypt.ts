@@ -2,16 +2,16 @@ import crypto from "crypto-js";
 import * as bcrypt from "bcryptjs";
 import { logColors } from "../visual/logging";
 
-export function createUserId(userName: string, userEmail: string): string {
-  var cipherTxt = crypto.AES.encrypt(userEmail, userName).toString();
-  return cipherTxt;
+export function createUserId(un: string, ue: string): string {
+  var ct = crypto.AES.encrypt(un, ue).toString();
+  return ct;
 }
 
-export async function hashEntry(password: string): Promise<string> {
+export async function hashEntry(p: string): Promise<string> {
   var hP: string = "";
   await bcrypt
     .genSalt(10)
-    .then((salt) => bcrypt.hash(password, salt))
+    .then((salt) => bcrypt.hash(p, salt))
     .then((hash) => (hP = hash))
     .catch((err) => {
       console.log(
@@ -24,12 +24,12 @@ export async function hashEntry(password: string): Promise<string> {
 }
 
 export async function verifyHash(pw: string, hash: string): Promise<boolean> {
-  var isLegit: boolean = false;
-  bcrypt.compare(pw, hash, async function (err, isMatch) {
+  var isl: boolean = false;
+  bcrypt.compare(pw, hash, async function (err, ism) {
     if (err) {
       console.log(`💀Failed verify attempt : \t ${err}`);
     }
-    isLegit = isMatch;
+    isl = ism;
   });
-  return isLegit;
+  return isl;
 }
