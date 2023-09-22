@@ -27,12 +27,12 @@ backend server for `pcb` project
                 400
                 response : {
                     "success" : false,
-                    "message" : "Failed to create user :$user"
+                    "message" : "Failed to create user :userName:"
                 }
                 201
                 response : {
                     "success" : true,
-                    "message" : "Created user :$user"
+                    "message" : "Created user :userName:"
                 }
         - added types/models
         - added err handlers, hash/encrypt helpers,
