@@ -1,6 +1,6 @@
 import crypto from "crypto-js";
 import * as bcrypt from "bcryptjs";
-import { logColors } from "../visual/logging";
+import { logColors } from "../standards/logging";
 
 export function createUserId(un: string, ue: string): string {
   var ct = crypto.AES.encrypt(un, ue).toString();
@@ -25,11 +25,14 @@ export async function hashEntry(p: string): Promise<string> {
 
 export async function verifyHash(pw: string, hash: string): Promise<boolean> {
   var isl: boolean = false;
-  bcrypt.compare(pw, hash, async function (err, ism) {
-    if (err) {
-      console.log(`💀Failed verify attempt : \t ${err}`);
-    }
-    isl = ism;
-  });
+  await bcrypt
+    .compare(pw, hash)
+    .then((ism) => (isl = ism))
+    .catch((err) =>
+      console.log(
+        logColors.fg.red + "%s" + logColors.reset,
+        `💀Failed verify attempt : \t ${err}`
+      )
+    );
   return isl;
 }

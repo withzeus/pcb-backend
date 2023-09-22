@@ -1,6 +1,6 @@
 import db from "../../../database/database";
 import { users } from "../../../database/schema/auth";
-import { logColors } from "../../../utils/visual/logging";
+import { logColors } from "../../../utils/standards/logging";
 import { UserResponse, UserRequest } from "../../models/auth";
 import { createUserId, hashEntry } from "../../../utils/functional/crypt";
 

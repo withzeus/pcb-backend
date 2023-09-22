@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from "express";
-import { logColors } from "../../../utils/visual/logging";
+import { logColors } from "../../../utils/standards/logging";
 
 export const AuthMiddleware = (
   req: Request,

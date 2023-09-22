@@ -1,6 +1,6 @@
 import server from "./server/server";
 import * as conf from "./configuration/config";
-import { logColors } from "./utils/visual/logging";
+import { logColors } from "./utils/standards/logging";
 
 const { restServerPort } = conf.serverConf;
 

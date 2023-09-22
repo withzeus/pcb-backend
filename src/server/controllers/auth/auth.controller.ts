@@ -1,7 +1,7 @@
 import * as yup from "yup";
 import * as AuthService from "../../services/auth/auth.service";
 import { Request, Response } from "express";
-import { logColors } from "../../../utils/visual/logging";
+import { logColors } from "../../../utils/standards/logging";
 
 export const GetUsers = (_: Request, res: Response) => {
   const us = [
