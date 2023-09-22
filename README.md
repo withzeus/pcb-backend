@@ -8,7 +8,7 @@ backend server for `pcb` project
     - setting up restful application structure
         - added npm scripts
         - added orm and migrations
-        - implemented route/controller/service struct
+        - implemented route/controller/service folder structure
     ```
 
 ## 9/22/2023
