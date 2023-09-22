@@ -1,6 +1,6 @@
-import { Request, Response } from "express";
 import * as yup from "yup";
 import * as AuthService from "../../services/auth/auth.service";
+import { Request, Response } from "express";
 import { logColors } from "../../../utils/visual/logging";
 
 export const GetUsers = (_: Request, res: Response) => {
@@ -22,7 +22,6 @@ export const CreateUser = async (req: Request, res: Response) => {
   try {
     const nU = await nUS.validate(req.body);
     const cR = await AuthService.createUser(nU);
-
     if (cR === -1) {
       res.status(400);
       res.send({
@@ -30,7 +29,7 @@ export const CreateUser = async (req: Request, res: Response) => {
         message: `Failed to create user ${nU.userName}`,
       });
     } else {
-      res.status(400);
+      res.status(201);
       res.send(cR);
     }
   } catch (err) {
