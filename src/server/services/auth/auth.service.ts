@@ -1,7 +1,7 @@
 import db from "../../../database/database";
 import { users } from "../../../database/schema/auth";
 import { logColors } from "../../../utils/visual/logging";
-import { UserResponse, UserRequest } from "../../models/auth.types";
+import { UserResponse, UserRequest } from "../../models/auth";
 import { createUserId, hashEntry } from "../../../utils/functional/crypt";
 
 type NewUser = typeof users.$inferInsert;
