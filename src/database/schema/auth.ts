@@ -14,13 +14,12 @@ export const users = pgTable(
   {
     userInternalId: varchar("user_internal_id").primaryKey(),
     userPassword: varchar("user_password", { length: 256 }).notNull(),
-    userEmail: varchar("user_email", { length: 256 }).notNull(),
+    userEmail: varchar("user_email", { length: 256 }).unique().notNull(),
     userName: varchar("user_name", { length: 256 }).notNull(),
   },
   (user) => {
     return {
-      nameEmailIdx: unique("composite_id_email_name_idx").on(
-        user.userInternalId,
+      nameEmailIdx: unique("composite_email_name_idx").on(
         user.userEmail,
         user.userName
       ),

@@ -7,6 +7,6 @@ const { restServerPort } = conf.serverConf;
 server.listen(restServerPort, async () => {
   console.log(
     logColors.fg.green + "%s" + logColors.reset,
-    `⚡️[server] : REST API server is running at http://localhost:${restServerPort} \n`
+    `[server] ⚡️ Notice : REST API server is running at http://localhost:${restServerPort}`
   );
 });

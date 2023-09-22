@@ -8,7 +8,7 @@ export const AuthMiddleware = (
 ) => {
   console.log(
     logColors.fg.blue + "%s" + logColors.reset,
-    `👩🏻‍💻[rest] : Request from ${req.hostname} has hitted middleware \n`
+    `[rest] 🤖 Notice : Request from ${req.hostname} has reached middleware`
   );
   next();
 };

@@ -1,14 +1,12 @@
 import express, { Express } from "express";
 import cors from "cors";
-import useRoutes from "./routes/user/user.route";
+import BindRoutes from "./routes/routes";
 
 const App: Express = express();
 
-//accept cross sharing
+//middlewares
 App.use(cors());
-
-//boostrap routes
-// App.use("/users", (res, req) => req.send("Hi"));
-App.use("/users", useRoutes);
+//Bind routes
+BindRoutes(App);
 
 export default App;
