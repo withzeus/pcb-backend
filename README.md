@@ -35,6 +35,6 @@ backend server for `pcb` project
                     "message" : "Created user :userName:"
                 }
         - added types/models
-        - added err handlers, hash/encrypt helpers,
+        - added err handlers, hash/encrypt, logging helpers,
         - user db schemas minor updates
     ```

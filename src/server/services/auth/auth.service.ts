@@ -1,8 +1,8 @@
 import db from "../../../database/database";
 import { users } from "../../../database/schema/auth";
-import { logColors } from "../../../utils/standards/logging";
 import { UserResponse, UserRequest } from "../../models/auth";
 import { createUserId, hashEntry } from "../../../utils/functional/crypt";
+import { logger } from "../../../utils/functional/logging";
 
 type NewUser = typeof users.$inferInsert;
 //C
@@ -27,10 +27,7 @@ export const createUser = async (
     };
     return res;
   } catch (err) {
-    console.log(
-      logColors.fg.red + "%s" + logColors.reset,
-      `[error] 💀 Database Error : ${(err as Error).message}`
-    );
+    logger("error", (err as Error).message, "Database Error");
   }
   return -1;
 };

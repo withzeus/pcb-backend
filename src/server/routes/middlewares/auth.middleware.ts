@@ -1,14 +1,15 @@
 import { NextFunction, Request, Response } from "express";
-import { logColors } from "../../../utils/standards/logging";
+import { logger } from "../../../utils/functional/logging";
 
 export const AuthMiddleware = (
   req: Request,
   _: Response,
   next: NextFunction
 ) => {
-  console.log(
-    logColors.fg.blue + "%s" + logColors.reset,
-    `[rest] 🤖 Notice : Request from ${req.hostname} has reached middleware`
+  logger(
+    "notice",
+    `Request from ${req.hostname} has reached middleware`,
+    "Middleware"
   );
   next();
 };

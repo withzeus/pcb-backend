@@ -1,7 +1,7 @@
 import * as yup from "yup";
 import * as AuthService from "../../services/auth/auth.service";
 import { Request, Response } from "express";
-import { logColors } from "../../../utils/standards/logging";
+import { logger } from "../../../utils/functional/logging";
 
 export const GetUsers = (_: Request, res: Response) => {
   const us = [
@@ -34,10 +34,7 @@ export const CreateUser = async (req: Request, res: Response) => {
     }
   } catch (err) {
     const m = err instanceof yup.ValidationError ? err.message : "";
-    console.log(
-      logColors.fg.red + "%s" + logColors.reset,
-      `[error] 💀 Validation Error : ${m}`
-    );
+    logger("error", m, "Validation Error");
     res.status(400);
     res.send({
       success: false,
